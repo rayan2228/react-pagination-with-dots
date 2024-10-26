@@ -1,16 +1,50 @@
 {
-  "name": "react-pagination-with-dots",
+  "name": "react-pagination-component",
   "version": "1.0.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
+    "rollup:dev": "rollup --c --bundleConfigAsCjs --environment NODE_ENV:development",
     "rollup": "rollup --c --bundleConfigAsCjs --environment NODE_ENV:production"
   },
   "author": "rayan hossain",
   "license": "MIT",
-  "description": "",
+  "description": "React Pagination Component is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or creating a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.With full control over pagination navigation, customizable labels, and support for React Hooks, this pagination UI component allows you to seamlessly paginate and manage data in any React-based application. Ideal for developers looking to build responsive pagination components that adapt to various layouts and devices.Use this library to add powerful and intuitive pagination features to your React project, enhancing the user experience and improving data accessibility with easy React pagination.",
+  "keywords": [
+    "pagination",
+    "paginate",
+    "paginator",
+    "react-pagination",
+    "react-pagination-component",
+    "react-pagination-with-dots",
+    "react-pagination-with-dots-component",
+    "react-paginate",
+    "react-pagination-dots",
+    "react-pagination-dots-component",
+    "pagination-dots",
+    "pagination-dots-component"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rayan2228/react-pagination-with-dots.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rayan2228/react-pagination-with-dots/issues"
+  },
+  "homepage": "https://github.com/rayan2228/react-pagination-with-dots.git#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@babel/preset-env": "^7.25.9",
     "@babel/preset-react": "^7.25.9",

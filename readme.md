@@ -1,6 +1,10 @@
 # react-pagination-with-dots
 
-A \"react-pagination-with-dots\" component designed for seamless integration with React/Next JS. This component allows developers to easily manage paginated API data, complete with customizable page limits, scroll-to-top functionality, and responsive design options. Perfect for applications requiring smooth pagination, it simplifies managing large datasets while enhancing user experience with smooth scrolling and efficient data fetching. Ideal for projects utilizing Redux Toolkit, this package is both easy to implement and highly configurable, making it an essential tool for modern web development.
+\"React-pagination-component\" is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or creating a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.
+
+With full control over pagination navigation, customizable labels, and support for React Hooks, this pagination UI component allows you to seamlessly paginate and manage data in any React-based application. Ideal for developers looking to build responsive pagination components that adapt to various layouts and devices.
+
+Use this library to add powerful and intuitive pagination features to your React project, enhancing the user experience and improving data accessibility with easy React pagination.
 
 ## Demo
 
