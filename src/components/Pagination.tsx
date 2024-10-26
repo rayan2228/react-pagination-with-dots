@@ -1,10 +1,6 @@
 import { FC, ReactNode, useEffect } from "react";
 import usePagination from "../hooks/usePagination";
 import "../pagination.css";
-enum paginationStyleType {
-  default = "default",
-  box = "box",
-}
 // enum paginationThemeType {
 //   dark = "dark",
 //   light = "light",
@@ -27,13 +23,13 @@ interface PaginationProps {
   next?: ReactNode | string;
   data?: any[];
   limit?: number;
-  paginationStyleType?: paginationStyleType;
+  paginationStyleType?: "default" | "box";
   // paginationThemeType?: paginationThemeType;
 }
 
 const Pagination: FC<PaginationProps> = ({
   currentPage,
-  totalPages = 20,
+  totalPages = 0,
   breakLabel = "...",
   setCurrentPage,
   activeClass,
@@ -54,13 +50,13 @@ const Pagination: FC<PaginationProps> = ({
 }) => {
   switch (paginationStyleType) {
     case "box":
-      activeClass = "activeClassBox";
+      activeClass = "activeClass";
       paginationItemClass = "paginationItemClassBox";
-      paginationClass = "paginationClassBox";
-      disabledClass = "disabledClassBox";
-      breakLabelClass = "breakLabelClassBox";
-      prevClass = "prevClassBox";
-      nextClass = "nextClassBox";
+      paginationClass = "paginationClass";
+      disabledClass = "disabledClass";
+      breakLabelClass = "breakLabelClass";
+      prevClass = "prevClass";
+      nextClass = "nextClass";
       buttonClass = "buttonClassBox";
       break;
     default:

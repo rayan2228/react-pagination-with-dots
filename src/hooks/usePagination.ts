@@ -1,7 +1,7 @@
 
 
 const usePagination = (
-  totalPages: number,
+  totalPages: number ,
   currentPage: number,
   breakLabel: string
 ) => {
