@@ -1,6 +1,6 @@
-# rc-pagination-component
+# react-pagination-with-dots
 
-\"rc-pagination-component\" is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or creating a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.
+\"react-pagination-with-dots\" is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or creating a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.
 
 With full control over pagination navigation, customizable labels, and support for React Hooks, this pagination UI component allows you to seamlessly paginate and manage data in any React-based application. Ideal for developers looking to build responsive pagination components that adapt to various layouts and devices.
 
@@ -8,7 +8,7 @@ Use this library to add powerful and intuitive pagination features to your React
 
 ## Demo
 
-[DEMO](https://stackblitz.com/edit/vitejs-vite-3kfukr?file=src%2FApp.tsx)
+[DEMO](hhttps://stackblitz.com/edit/react-pagination-with-dots?file=src%2FApp.tsx)
 
 ## Installation
 
@@ -21,8 +21,10 @@ npm i react-pagination-with-dots
 ## Usage/Examples Pagination using API
 
 ```javascript
+import "rc-pagination-component/dist/index.css";
+import { Pagination } from "rc-pagination-component";
 function App() {
-  const [currentPage, setCurrentPage] = useState < number > 1;
+  const [currentPage, setCurrentPage] = useState(1);
   return (
     <Pagination
       totalPages={20} // from api
@@ -52,8 +54,8 @@ const books = [
   // Add more books here as needed
 ];
 function App() {
-  const [currentPage, setCurrentPage] = useState < number > 1;
-  const [data, setData] = useState < [] > books;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [data, setData] = useState(books);
   return (
     <div>
       <h1>Books</h1>
@@ -78,26 +80,26 @@ export default App;
 
 ## Package Customization
 
-| Property name        | Type       | Default         | Description                                                                         |
-| -------------------- | ---------- | --------------- | ----------------------------------------------------------------------------------- |
-| currentPage         | variable   | currentPage    | pass useState variable                                                              |
-| setCurrentPage   | object     | function   | pass useState function  |
-| totalPages      | variable   | 0 | if you use API for getting data. total pages value are required and must be in number  |
-| breakLabel      | string     | ...    | pass any string                 |
-| data      | array | []            | if you use demo data                                                                   |
-| setData     | function     | function    | pass useState function                 |
-| activeClass               | string     | activeClass               | design active filed                                                     |
-| paginationClass        | string     | paginationClass            | add design pagination item filed                                                                   |
-| paginationItemClass   | string     | paginationItemClass            | design pagination item filed                                                                  |
-| disabledClass       | string     | disabledClass            | design pagination disabled button                                                  |                                                                |
-| breakLabelClass      | string     | breakLabelClass            | design pagination break label                                                                   |
-| buttonClass | string     | buttonClass            | design pagination  buttons                                                                   |
-| prevClass           | string | prevClass             | design pagination prev button                                                        |
-| nextClass           | string     | nextClass             | design pagination next button                                                          |
-| prev     | string or react component | prev             | change the value of prev button                                                           |
-| next     | string or react component | next             | change the value of next button                                                           |
-| limit      | number | 10             | pass limit if you pass data manually                                                                   |
-| paginationStyleType      | string | default             | default or box                                                                   |
+| Property name       | Type                      | Default             | Description                                                                           |
+| ------------------- | ------------------------- | ------------------- | ------------------------------------------------------------------------------------- | --- |
+| currentPage         | variable                  | currentPage         | pass useState variable                                                                |
+| setCurrentPage      | object                    | function            | pass useState function                                                                |
+| totalPages          | variable                  | 0                   | if you use API for getting data. total pages value are required and must be in number |
+| breakLabel          | string                    | ...                 | pass any string                                                                       |
+| data                | array                     | []                  | if you use demo data                                                                  |
+| setData             | function                  | function            | pass useState function                                                                |
+| activeClass         | string                    | activeClass         | design active filed                                                                   |
+| paginationClass     | string                    | paginationClass     | add design pagination item filed                                                      |
+| paginationItemClass | string                    | paginationItemClass | design pagination item filed                                                          |
+| disabledClass       | string                    | disabledClass       | design pagination disabled button                                                     |     |
+| breakLabelClass     | string                    | breakLabelClass     | design pagination break label                                                         |
+| buttonClass         | string                    | buttonClass         | design pagination buttons                                                             |
+| prevClass           | string                    | prevClass           | design pagination prev button                                                         |
+| nextClass           | string                    | nextClass           | design pagination next button                                                         |
+| prev                | string or react component | prev                | change the value of prev button                                                       |
+| next                | string or react component | next                | change the value of next button                                                       |
+| limit               | number                    | 10                  | pass limit if you pass data manually                                                  |
+| paginationStyleType | string                    | default             | default or box                                                                        |
 
 # Hi, I'm Rayan Hossain! 👋
 

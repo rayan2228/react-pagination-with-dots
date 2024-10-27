@@ -1,5 +1,5 @@
 {
-  "name": "rc-pagination-component",
+  "name": "react-pagination-with-dots",
   "version": "1.0.0",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -11,7 +11,7 @@
   },
   "author": "rayan hossain",
   "license": "MIT",
-  "description": "React Pagination Component is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or creating a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.With full control over pagination navigation, customizable labels, and support for React Hooks, this pagination UI component allows you to seamlessly paginate and manage data in any React-based application. Ideal for developers looking to build responsive pagination components that adapt to various layouts and devices.Use this library to add powerful and intuitive pagination features to your React project, enhancing the user experience and improving data accessibility with easy React pagination.",
+  "description": "react-pagination-with-dots is a highly customizable and responsive pagination library designed for React applications. This package enables easy integration of pagination in your projects, allowing you to create dynamic and paginated lists with minimal effort. Whether you're dealing with large datasets or making a simple paginated data grid, this React Pagination Package offers flexibility and simplicity.With full control over pagination navigation, customizable labels, and support for React Hooks, this pagination UI component allows you to paginate and manage data in any React-based application seamlessly. Ideal for developers looking to build responsive pagination components that adapt to various layouts and devices. Use this library to add powerful and intuitive pagination features to your React project, enhancing the user experience and improving data accessibility with easy React pagination.",
   "keywords": [
     "pagination",
     "paginate",
