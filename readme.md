@@ -8,7 +8,7 @@ Use this library to add powerful and intuitive pagination features to your React
 
 ## Demo
 
-[DEMO](https://stackblitz.com/edit/vitejs-vite-3kfukr?file=src%2FApp.tsx)
+[DEMO](https://stackblitz.com/edit/react-pagination-with-dots?file=README.md)
 
 ## Installation
 
