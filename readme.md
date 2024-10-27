@@ -22,7 +22,7 @@ npm i react-pagination-with-dots
 
 ```javascript
 import "react-pagination-with-dots/dist/index.css";
-import Pagination  from "rc-pagination-component";
+import Pagination  from "react-pagination-with-dots";
 function App() {
   const [currentPage, setCurrentPage] = useState<number>(1);
   return (
@@ -42,7 +42,7 @@ export default App;
 ```javascript
 
 import "react-pagination-with-dots/dist/index.css";
-import Pagination  from "rc-pagination-component";
+import Pagination  from "react-pagination-with-dots";
 
 const books = [
   { id: 1, title: "Book 1" },
