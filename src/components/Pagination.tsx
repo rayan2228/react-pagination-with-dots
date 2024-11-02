@@ -11,6 +11,8 @@ interface PaginationProps {
   breakLabel?: string;
   setCurrentPage: (page: number) => void;
   setData?: (data: any) => void;
+  paginationContainerClass?: string;
+  paginationInfoClass?: string;
   activeClass?: string;
   paginationItemClass?: string;
   paginationClass?: string;
@@ -22,6 +24,7 @@ interface PaginationProps {
   prev?: ReactNode | string;
   next?: ReactNode | string;
   data?: any[];
+  totalData?: number;
   limit?: number;
   paginationStyleType?: "default" | "box";
   // paginationThemeType?: paginationThemeType;
@@ -32,6 +35,8 @@ const Pagination: FC<PaginationProps> = ({
   totalPages = 0,
   breakLabel = "...",
   setCurrentPage,
+  paginationContainerClass,
+  paginationInfoClass,
   activeClass,
   paginationItemClass,
   paginationClass,
@@ -43,36 +48,20 @@ const Pagination: FC<PaginationProps> = ({
   prev = "prev",
   next = "next",
   data,
+  totalData = 0,
   limit = 10,
   setData = () => {},
   paginationStyleType = "default",
   // paginationThemeType = "dark",
 }) => {
-  switch (paginationStyleType) {
-    case "box":
-      activeClass = "activeClass";
-      paginationItemClass = "paginationItemClassBox";
-      paginationClass = "paginationClass";
-      disabledClass = "disabledClass";
-      breakLabelClass = "breakLabelClass";
-      prevClass = "prevClass";
-      nextClass = "nextClass";
-      buttonClass = "buttonClassBox";
-      break;
-    default:
-      activeClass = "activeClass";
-      paginationItemClass = "paginationItemClass";
-      paginationClass = "paginationClass";
-      disabledClass = "disabledClass";
-      breakLabelClass = "breakLabelClass";
-      prevClass = "prevClass";
-      nextClass = "nextClass";
-      buttonClass = "buttonClass";
-      break;
+  if (data?.length) {
+    totalPages = Math.ceil(data?.length / limit);
+    totalData = data?.length || 0;
+  } else if (totalData) {
+    totalPages = Math.ceil(totalData / limit);
   }
-
-  if (data?.length) totalPages = Math.ceil(data?.length / limit);
-
+  const start = (currentPage - 1) * limit + 1;
+  const end = Math.min(currentPage * limit, totalData);
   const paginationRange = usePagination(totalPages, currentPage, breakLabel);
 
   useEffect(() => {
@@ -83,6 +72,10 @@ const Pagination: FC<PaginationProps> = ({
       );
       setData(currentBooks);
     }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [currentPage, data?.length, limit]);
 
   if (paginationRange.length < 2) {
@@ -90,49 +83,60 @@ const Pagination: FC<PaginationProps> = ({
   }
 
   return (
-    <ul className={`${paginationClass}`}>
-      <button
-        className={`${buttonClass} ${prevClass} ${
-          currentPage === 1 ? `${disabledClass}` : ""
-        }`}
-        disabled={currentPage === 1}
-        onClick={() => setCurrentPage(currentPage - 1)}
-      >
-        {prev}
-      </button>
+    <div className={`paginationContainerClass ${paginationContainerClass}`}>
+      <ul className={`paginationClass ${paginationClass}`}>
+        <button
+          className={` ${buttonClass} ${prevClass} ${
+            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
+          } ${currentPage === 1 ? ` disabledClass ${disabledClass}` : ""}`}
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
+          {prev}
+        </button>
 
-      {paginationRange.map((pageNumber, idx) => {
-        if (pageNumber === breakLabel) {
+        {paginationRange.map((pageNumber, idx) => {
+          if (pageNumber === breakLabel) {
+            return (
+              <li key={idx} className={`breakLabelClass ${breakLabelClass}`}>
+                {breakLabel}
+              </li>
+            );
+          }
+
           return (
-            <li key={idx} className={`${breakLabelClass}`}>
-              {breakLabel}
+            <li
+              key={idx}
+              className={`${paginationItemClass} ${
+                paginationStyleType === "box"
+                  ? "paginationItemClassBox"
+                  : "paginationItemClass"
+              } ${
+                pageNumber === currentPage ? `activeClass ${activeClass}` : ""
+              }`}
+              onClick={() => setCurrentPage(Number(pageNumber))}
+            >
+              {pageNumber}
             </li>
           );
-        }
+        })}
 
-        return (
-          <li
-            key={idx}
-            className={`${paginationItemClass} ${
-              pageNumber === currentPage ? `${activeClass}` : ""
-            }`}
-            onClick={() => setCurrentPage(Number(pageNumber))}
-          >
-            {pageNumber}
-          </li>
-        );
-      })}
-
-      <button
-        className={`${buttonClass} ${nextClass} ${
-          currentPage === totalPages ? `${disabledClass}` : ""
-        }`}
-        disabled={currentPage === totalPages}
-        onClick={() => setCurrentPage(currentPage + 1)}
-      >
-        {next}
-      </button>
-    </ul>
+        <button
+          className={`${buttonClass} ${nextClass} ${
+            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
+          } ${
+            currentPage === totalPages ? `disabledClass ${disabledClass}` : ""
+          }`}
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
+          {next}
+        </button>
+      </ul>
+      <p className={`paginationInfoClass ${paginationInfoClass}`}>
+        Showing {start} to {end} of {totalData}
+      </p>
+    </div>
   );
 };
 
