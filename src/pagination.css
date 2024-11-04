@@ -21,13 +21,19 @@
   gap: 0.5rem;
 }
 
-.buttonClass {
+.buttonClass,
+.paginationItemClassBox  {
   padding: 0.5rem 1rem;
   text-align: center;
   cursor: pointer;
   transition: var(--transition);
   background-color: var(--primary-bg-color);
   color: var(--secondary-text-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .paginationItemClass,
@@ -47,19 +53,18 @@
   -ms-transition: var(--transition);
   -o-transition: var(--transition);
 }
-.breakLabelClass{
+
+.breakLabelClass {
   background-color: transparent;
 }
+
 .paginationItemClass:hover,
 .paginationItemClassBox:hover {
   background-color: var(--primary-hover-color);
   color: var(--secondary-text-color)
 }
 
-.buttonClassBox,
-.paginationItemClassBox {
-  border-radius: 4px;
-}
+
 
 .activeClass {
   background-color: var(--primary-hover-color);
@@ -79,9 +84,10 @@
 
 .buttonClass:hover,
 .buttonClassBox:hover {
-background-color: var(--primary-hover-color);
-color: var(--secondary-text-color)
+  background-color: var(--primary-hover-color);
+  color: var(--secondary-text-color)
 }
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .paginationContainerClass {

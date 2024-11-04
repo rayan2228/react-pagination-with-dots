@@ -91,6 +91,7 @@ function App() {
         limit={5}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
+        paginationStyleType={"box"} // box or default
       />
     </div>
   );
@@ -106,7 +107,7 @@ export default App;
 | currentPage         | variable                  | currentPage         | pass useState variable                                                                |
 | setCurrentPage      | function                  | function            | pass useState function                                                                |
 | totalPages          | variable                  | 0                   | if you use API for getting data. total pages value are required and must be in number |
-| totalData          | variable                  | 0                   | if api don't send totalPages then use this |
+| totalData           | variable                  | 0                   | if api don't send totalPages then use this                                            |
 | breakLabel          | string                    | ...                 | pass any string                                                                       |
 | data                | array                     | []                  | if you use demo data                                                                  |
 | setData             | function                  | function            | pass useState function                                                                |

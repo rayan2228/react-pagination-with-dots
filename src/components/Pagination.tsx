@@ -53,7 +53,7 @@ const Pagination: FC<PaginationProps> = ({
   limit = 32,
   setData = () => {},
   paginationStyleType = "default",
-  showingInfo=true
+  showingInfo = true,
   // paginationThemeType = "dark",
 }) => {
   if (data?.length) {
@@ -88,9 +88,8 @@ const Pagination: FC<PaginationProps> = ({
     <div className={`paginationContainerClass ${paginationContainerClass}`}>
       <div className={`paginationClass ${paginationClass}`}>
         <button
-          className={` ${buttonClass} ${prevClass} ${
-            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
-          } ${currentPage === 1 ? ` disabledClass ${disabledClass}` : ""}`}
+          className={` ${buttonClass} ${prevClass}  buttonClass
+          ${currentPage === 1 ? ` disabledClass ${disabledClass}` : ""}`}
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
         >
@@ -124,8 +123,7 @@ const Pagination: FC<PaginationProps> = ({
         })}
 
         <button
-          className={`${buttonClass} ${nextClass} ${
-            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
+          className={`${buttonClass} ${nextClass} buttonClass
           } ${
             currentPage === totalPages ? `disabledClass ${disabledClass}` : ""
           }`}
