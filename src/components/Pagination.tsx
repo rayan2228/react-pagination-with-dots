@@ -27,6 +27,7 @@ interface PaginationProps {
   totalData?: number;
   limit?: number;
   paginationStyleType?: "default" | "box";
+  showingInfo: boolean;
   // paginationThemeType?: paginationThemeType;
 }
 
@@ -49,9 +50,10 @@ const Pagination: FC<PaginationProps> = ({
   next = "next",
   data,
   totalData = 0,
-  limit = 10,
+  limit = 32,
   setData = () => {},
   paginationStyleType = "default",
+  showingInfo=true
   // paginationThemeType = "dark",
 }) => {
   if (data?.length) {
@@ -133,9 +135,11 @@ const Pagination: FC<PaginationProps> = ({
           {next}
         </button>
       </div>
-      <p className={`paginationInfoClass ${paginationInfoClass}`}>
-        Showing {start} to {end} of {totalData}
-      </p>
+      {showingInfo && (
+        <p className={`paginationInfoClass ${paginationInfoClass}`}>
+          Showing {start} to {end} of {totalData}
+        </p>
+      )}
     </div>
   );
 };
