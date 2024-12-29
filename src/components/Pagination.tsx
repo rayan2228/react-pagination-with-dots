@@ -26,6 +26,7 @@ interface PaginationProps {
   totalData?: number;
   limit?: number;
   paginationStyleType?: "default" | "box";
+  showingInfo: boolean;
   // paginationThemeType?: paginationThemeType;
 }
 
@@ -47,9 +48,10 @@ const Pagination: FC<PaginationProps> = ({
   next = "next",
   data,
   totalData = 0,
-  limit = 10,
+  limit = 32,
   setData = () => {},
   paginationStyleType = "default",
+  showingInfo = true,
   // paginationThemeType = "dark",
 }) => {
   let totalPages = 1;
@@ -83,11 +85,10 @@ const Pagination: FC<PaginationProps> = ({
 
   return (
     <div className={`paginationContainerClass ${paginationContainerClass}`}>
-      <ul className={`paginationClass ${paginationClass}`}>
+      <div className={`paginationClass ${paginationClass}`}>
         <button
-          className={` ${buttonClass} ${prevClass} ${
-            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
-          } ${currentPage === 1 ? ` disabledClass ${disabledClass}` : ""}`}
+          className={` ${buttonClass} ${prevClass}  buttonClass
+          ${currentPage === 1 ? ` disabledClass ${disabledClass}` : ""}`}
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
         >
@@ -97,14 +98,14 @@ const Pagination: FC<PaginationProps> = ({
         {paginationRange.map((pageNumber, idx) => {
           if (pageNumber === breakLabel) {
             return (
-              <li key={idx} className={`breakLabelClass ${breakLabelClass}`}>
+              <span key={idx} className={`breakLabelClass ${breakLabelClass}`}>
                 {breakLabel}
-              </li>
+              </span>
             );
           }
 
           return (
-            <li
+            <span
               key={idx}
               className={`${paginationItemClass} ${
                 paginationStyleType === "box"
@@ -116,13 +117,12 @@ const Pagination: FC<PaginationProps> = ({
               onClick={() => setCurrentPage(Number(pageNumber))}
             >
               {pageNumber}
-            </li>
+            </span>
           );
         })}
 
         <button
-          className={`${buttonClass} ${nextClass} ${
-            paginationStyleType === "box" ? "buttonClassBox" : "buttonClass"
+          className={`${buttonClass} ${nextClass} buttonClass
           } ${
             currentPage === totalPages ? `disabledClass ${disabledClass}` : ""
           }`}
@@ -131,10 +131,12 @@ const Pagination: FC<PaginationProps> = ({
         >
           {next}
         </button>
-      </ul>
-      <p className={`paginationInfoClass ${paginationInfoClass}`}>
-        Showing {start} to {end} of {totalData}
-      </p>
+      </div>
+      {showingInfo && (
+        <p className={`paginationInfoClass ${paginationInfoClass}`}>
+          Showing {start} to {end} of {totalData}
+        </p>
+      )}
     </div>
   );
 };
