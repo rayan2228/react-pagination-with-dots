@@ -75,12 +75,7 @@ function App() {
         limit={5}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-<<<<<<< HEAD
         paginationStyleType={"default"} //box
-=======
-        paginationStyleType={"box"} // box or default
-          breakLabel={"..."}
->>>>>>> 29576826067e639ebe6e2656595ba5f0fa44692d
       />
     </div>
   );
