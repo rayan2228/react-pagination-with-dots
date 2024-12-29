@@ -7,7 +7,6 @@ import "../pagination.css";
 // }
 interface PaginationProps {
   currentPage: number;
-  totalPages?: number;
   breakLabel?: string;
   setCurrentPage: (page: number) => void;
   setData?: (data: any) => void;
@@ -32,7 +31,6 @@ interface PaginationProps {
 
 const Pagination: FC<PaginationProps> = ({
   currentPage,
-  totalPages = 0,
   breakLabel = "...",
   setCurrentPage,
   paginationContainerClass,
@@ -54,6 +52,7 @@ const Pagination: FC<PaginationProps> = ({
   paginationStyleType = "default",
   // paginationThemeType = "dark",
 }) => {
+  let totalPages = 1;
   if (data?.length) {
     totalPages = Math.ceil(data?.length / limit);
     totalData = data?.length || 0;
